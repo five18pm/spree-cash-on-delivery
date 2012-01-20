@@ -13,7 +13,7 @@ module Spree::CashOnDelivery
       end
 
       def add_migrations
-        run 'bundle exec rake railties:install:migrations FROM=cash_on_delivery'
+        run 'bundle exec rake railties:install:migrations FROM=spree_cash_on_delivery'
       end
 
       def run_migrations

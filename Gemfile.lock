@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    spree_cash_on_delivery (1.0.0.rc1)
+    spree_cash_on_delivery (0.1.0)
       spree_core (>= 1.0.0.rc1)
 
 PATH
