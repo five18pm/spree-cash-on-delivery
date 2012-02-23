@@ -10,6 +10,5 @@ else
   gem "ruby-debug19"
 end
 
-gem 'spree', :path => '../spree'
 gem 'active_reload'
 gemspec

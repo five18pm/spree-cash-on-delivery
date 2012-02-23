@@ -11,3 +11,4 @@ spec/dummy
 *.class
 *.pyc
 *.pyo
+Gemfile.lock
