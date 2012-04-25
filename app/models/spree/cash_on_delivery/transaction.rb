@@ -19,6 +19,17 @@ module Spree
         end
       end
 
+      def post_create(payment)
+        payment.order.adjustments.create(:amount => Spree::Config[:cash_on_delivery_charge],
+                                 :source => payment,
+                                 :originator => payment,
+                                 :label => I18n.t(:shipping_and_handling))
+      end
+
+      def update_adjustment(adjustment, src)
+        adjustment.update_attribute_without_callbacks(:amount, Spree::Config[:cash_on_delivery_charge])
+      end
+
       def actions
         %w{capture void cash_received}
       end
@@ -52,6 +63,10 @@ module Spree
       def cash_received(payment)
         payment.source.receive_cash
         true
+      end
+
+      def process!(payment)
+        capture(payment)
       end
     end
   end
